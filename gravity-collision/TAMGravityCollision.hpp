@@ -27,7 +27,7 @@ public:
 			bool clipping = false;
 
 			for (const auto& collision : collisions) {
-				const glm::vec3& norm = collision.plane.frag_plane.normal;
+				const glm::vec3& norm = collision.collision_normal;
 				if (glm::dot(norm, final_vel) < 0.0f || glm::dot(norm, grav_dir) < 0.0f) {
 					clipping = true;
 				}
@@ -48,7 +48,7 @@ public:
 			bool clipping = false;
 
 			for (const auto& collision : collisions) {
-				const glm::vec3& norm = collision.plane.frag_plane.normal;
+				const glm::vec3& norm = collision.collision_normal;
 				if (glm::dot(norm, final_accel) < 0.0f) {
 					clipping = true;
 				}
